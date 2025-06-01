@@ -1,1 +1,179 @@
-/* Add your CSS here */
+/* Import Outfit font from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Outfit:400,700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Outfit', Arial, sans-serif;
+  text-align: center;
+}
+
+/* Mobile-first styles */
+.hero-mission {
+  /* Make the hero section stretch to the full width of the screen */
+  width: 100vw; /* 100% of the viewport width */
+  margin-left: calc(50% - 50vw); /* Remove any side margins */
+  margin-right: calc(50% - 50vw);
+  background: linear-gradient(to right, #0093E9 0%, #003366 100%);
+  color: white;
+  padding: 40px 12px 60px 12px;
+  box-sizing: border-box;
+}
+
+.hero-logo {
+  width: 60px;
+  display: block;
+  margin: 0 auto 24px auto;
+  position: relative;
+  top: 0;
+}
+
+.hero-title {
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px 0;
+  position: relative;
+}
+
+.hero-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #0093E9;
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+}
+
+.hero-mission h2 {
+  margin-top: 0;
+  font-size: 1.3em;
+}
+
+.hero-mission p {
+  font-size: 1em;
+  max-width: 95vw;
+  margin: 14px auto 0 auto;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  word-spacing: 0.03em;
+}
+
+section {
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+section > div {
+  background: #fff; /* White background for each card */
+  color: #222;
+  border-radius: 10px; /* Rounded corners for the card */
+  margin: 24px auto; /* Space between cards */
+  padding: 20px 12px; /* Padding inside the card */
+  box-shadow: 0 2px 10px rgba(0,0,50,0.07); /* Soft shadow for card effect */
+  max-width: 500px; /* Limit card width for readability */
+}
+
+section > div h2 {
+  font-size: 1.6em; /* Slightly bigger */
+  color: #003366; /* Dark blue color */
+  margin: 8px 0 4px 0;
+  font-weight: bold;
+}
+
+/* Make images inside each card about 70% of the card's width and center them */
+section > div img {
+  width: 70%; /* Image takes up about 70% of the card's width */
+  max-width: none; /* Remove previous max-width so 70% works */
+  display: block; /* Center the image */
+  margin: 12px auto;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Make the ghgintel.avif image the same width and height as the other card images */
+section > div img[src*="ghgintel.avif"] {
+  width: 70%; /* Same width as other card images */
+  height: auto; /* Keep the aspect ratio like the others */
+  max-width: none;
+  display: block;
+  margin: 12px auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin: 8px 0 4px 0;
+}
+
+/* Make all h3 headings slightly bigger */
+h3 {
+  font-size: 1.2em; /* Slightly bigger for better visibility */
+  margin: 4px 0 8px 0;
+}
+
+p {
+  font-size: 0.98em;
+  margin: 8px 0 0 0;
+}
+
+/* Responsive for tablets and up */
+@media (min-width: 600px) {
+  .hero-mission {
+    padding: 56px 24px 90px 24px;
+  }
+  .hero-logo {
+    width: 80px;
+    margin-bottom: 32px;
+  }
+  .hero-title {
+    font-size: 2.5em;
+  }
+  .hero-title::after {
+    width: 80px;
+    height: 4px;
+    margin-top: 16px;
+  }
+  .hero-mission h2 {
+    font-size: 1.7em;
+  }
+  .hero-mission p {
+    font-size: 1.15em;
+    max-width: 600px;
+  }
+  section {
+    padding: 0 32px;
+  }
+  section > div {
+    padding: 24px 16px;
+    margin: 24px auto;
+    max-width: 600px;
+  }
+}
+
+/* Responsive for desktop */
+@media (min-width: 900px) {
+  .hero-mission {
+    /* Keep full width on large screens too */
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    padding: 72px 0 120px 0;
+  }
+  .hero-title {
+    font-size: 3em;
+  }
+  section {
+    padding: 0 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  section > div {
+    max-width: 700px;
+  }
+}
+
+/* Add a comment for students */
+/* Each card is now in its own box, and the year (h2) is bigger and dark blue. */
