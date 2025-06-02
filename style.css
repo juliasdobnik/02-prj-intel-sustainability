@@ -72,6 +72,8 @@ section > div {
   padding: 20px 12px; /* Padding inside the card */
   box-shadow: 0 2px 10px rgba(0,0,50,0.07); /* Soft shadow for card effect */
   max-width: 500px; /* Limit card width for readability */
+  position: relative;
+  overflow: hidden;
 }
 
 section > div h2 {
@@ -118,6 +120,81 @@ p {
   margin: 8px 0 0 0;
 }
 
+/* Timeline card image hover effect */
+.card-img-hover {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 250px;
+}
+
+.card-img-hover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s;
+  border-radius: 4px;
+}
+
+.card-img-hover .img-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 32, 96, 0.75); /* Dark blue, 75% opacity */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 1em;
+  text-align: center;
+  padding: 12px;
+  pointer-events: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.card-img-hover:hover .img-hover-overlay,
+.card-img-hover:focus .img-hover-overlay {
+  opacity: 1;
+}
+
+.card-img-hover:hover img,
+.card-img-hover:focus img {
+  filter: brightness(0.7);
+}
+
+/* Increased image size for .card-img-hover and its img to 350px wide on desktop, and made them full width on mobile for larger, more prominent images */
+.card-img-hover,
+.card-img-hover img {
+  max-width: 100%;
+  width: 350px;
+  min-width: 200px;
+  height: auto;
+}
+
+.card-img-hover img[src*="2020.png"] {
+  aspect-ratio: 5 / 2;
+  object-fit: cover;
+  width: 100%;
+  max-width: 350px;
+  min-width: 200px;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .card-img-hover,
+  .card-img-hover img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+  }
+}
+
 /* Responsive for tablets and up */
 @media (min-width: 600px) {
   .hero-mission {
@@ -155,23 +232,55 @@ p {
 /* Responsive for desktop */
 @media (min-width: 900px) {
   .hero-mission {
-    /* Keep full width on large screens too */
+    display: block;
+    width: 100%;
     max-width: none;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    margin: 0;
     border-radius: 0;
     padding: 72px 0 120px 0;
-  }
-  .hero-title {
-    font-size: 3em;
+    box-sizing: border-box;
   }
   section {
-    padding: 0 80px;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 32px;
+    padding: 0 40px 32px 40px;
+    max-width: 100vw;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
   }
   section > div {
-    max-width: 700px;
+    min-width: 340px;
+    max-width: 400px;
+    flex: 0 0 auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Horizontal scroll timeline for desktop/laptop */
+@media (min-width: 900px) {
+  section {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 32px;
+    padding: 0 40px 32px 40px;
+    max-width: 100vw;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  section > div {
+    min-width: 340px;
+    max-width: 400px;
+    flex: 0 0 auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
